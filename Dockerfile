@@ -9,11 +9,15 @@ WORKDIR /app
 # Copy configuration files
 COPY pyproject.toml uv.lock ./
 
-# Install dependencies
-RUN uv sync --frozen --no-dev
+# Install dependencies (without the project itself)
+RUN uv sync --frozen --no-dev --no-install-project
 
 # Copy source code
 COPY src/ src/
+COPY README.md .
+
+# Install the project
+RUN uv sync --frozen --no-dev
 
 # Expose port (FastMCP usually runs on stdio, but can run over SSE/HTTP)
 # For this example we'll assume stdio for now, or we can expose a port if using SSE.

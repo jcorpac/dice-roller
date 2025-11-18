@@ -8,7 +8,7 @@ from dice_roller.logic import (
 )
 
 # Initialize the FastMCP server
-mcp = FastMCP("Dice Roller")
+mcp = FastMCP("MCP Dice Roller")
 
 # MCP Tools
 @mcp.tool()

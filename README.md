@@ -1,4 +1,4 @@
-# Dice Roller
+# MCP Dice Roller
 
 A FastMCP dice roller project.
 
@@ -29,8 +29,8 @@ uv run pytest
 
 Build and run with Docker:
 ```bash
-docker build -t fastmcp-app .
-docker run --rm fastmcp-app
+docker build -t mcp-dice-roller .
+docker run --rm mcp-dice-roller
 ```
 
 ## Connect to Chat Apps
@@ -64,7 +64,7 @@ To use this MCP server with a client like Claude Desktop, add the following conf
         "run",
         "-i",
         "--rm",
-        "fastmcp-app"
+        "mcp-dice-roller"
       ]
     }
   }
@@ -81,5 +81,5 @@ ollama run llama3.2 --mcp "uv run fastmcp run src/dice_roller/main.py"
 
 #### Docker
 ```bash
-ollama run llama3.2 --mcp "docker run -i --rm fastmcp-app"
+ollama run llama3.2 --mcp "docker run -i --rm mcp-dice-roller"
 ```
