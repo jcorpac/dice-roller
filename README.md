@@ -74,6 +74,12 @@ To use this MCP server with a client like Claude Desktop, add the following conf
 ### Ollama
 You can use this MCP server with Ollama by configuring it as a tool provider.
 
+#### Local Development
 ```bash
 ollama run llama3.2 --mcp "uv run fastmcp run src/dice_roller/main.py"
+```
+
+#### Docker
+```bash
+ollama run llama3.2 --mcp "docker run -i --rm fastmcp-app"
 ```
