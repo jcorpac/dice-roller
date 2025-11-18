@@ -29,6 +29,11 @@ uv run pytest
 
 Build and run with Docker:
 ```bash
+docker run --rm jcorpac/mcp-dice-roller
+```
+
+Or build locally:
+```bash
 docker build -t mcp-dice-roller .
 docker run --rm mcp-dice-roller
 ```
@@ -64,7 +69,7 @@ To use this MCP server with a client like Claude Desktop, add the following conf
         "run",
         "-i",
         "--rm",
-        "mcp-dice-roller"
+        "jcorpac/mcp-dice-roller"
       ]
     }
   }
@@ -81,5 +86,46 @@ ollama run llama3.2 --mcp "uv run fastmcp run src/dice_roller/main.py"
 
 #### Docker
 ```bash
-ollama run llama3.2 --mcp "docker run -i --rm mcp-dice-roller"
+ollama run llama3.2 --mcp "docker run -i --rm jcorpac/mcp-dice-roller"
+```
+
+### LM Studio
+To use this MCP server with LM Studio:
+
+1. Open LM Studio and go to the **Program** tab (terminal icon `>_`).
+2. Under the **Install** section, click **Edit mcp.json**.
+3. Add the following configuration to the `mcpServers` object:
+
+#### Local Development
+```json
+{
+  "mcpServers": {
+    "dice-roller": {
+      "command": "uv",
+      "args": [
+        "run",
+        "fastmcp",
+        "run",
+        "src/dice_roller/main.py"
+      ]
+    }
+  }
+}
+```
+
+#### Docker
+```json
+{
+  "mcpServers": {
+    "dice-roller": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "jcorpac/mcp-dice-roller"
+      ]
+    }
+  }
+}
 ```
