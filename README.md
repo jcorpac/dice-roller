@@ -32,3 +32,48 @@ Build and run with Docker:
 docker build -t fastmcp-app .
 docker run --rm fastmcp-app
 ```
+
+## Connect to Chat Apps
+
+To use this MCP server with a client like Claude Desktop, add the following configuration to your `claude_desktop_config.json`:
+
+### Local Development
+```json
+{
+  "mcpServers": {
+    "dice-roller": {
+      "command": "uv",
+      "args": [
+        "run",
+        "fastmcp",
+        "run",
+        "src/dice_roller/main.py"
+      ]
+    }
+  }
+}
+```
+
+### Docker
+```json
+{
+  "mcpServers": {
+    "dice-roller": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "fastmcp-app"
+      ]
+    }
+  }
+}
+```
+
+### Ollama
+You can use this MCP server with Ollama by configuring it as a tool provider.
+
+```bash
+ollama run llama3.2 --mcp "uv run fastmcp run src/dice_roller/main.py"
+```
