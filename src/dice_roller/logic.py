@@ -39,8 +39,8 @@ def roll_d20_logic(modifier: int = 0, advantage: bool = False, disadvantage: boo
         "reason": reason
     }
 
-def roll_damage_logic(count: int, sides: int, modifier: int = 0) -> dict:
-    """Roll damage (e.g., 2d6 + 3)."""
+def roll_dice_logic(count: int, sides: int, modifier: int = 0) -> dict:
+    """Roll multiple dice (e.g., 2d6 + 3)."""
     import random
     rolls = [random.randint(1, sides) for _ in range(count)]
     total = sum(rolls) + modifier

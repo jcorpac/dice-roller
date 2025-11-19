@@ -16,7 +16,7 @@ uv run fastmcp run src/dice_roller/main.py
 - **D&D Features**:
     - `roll_ability_score()`: Rolls 4d6 drop lowest.
     - `roll_d20(modifier, advantage, disadvantage)`: Rolls a d20 with modifiers and mechanics.
-    - `roll_damage(count, sides, modifier)`: Rolls damage dice.
+    - `roll_dice(count, sides, modifier)`: Rolls multiple dice (e.g., damage, healing).
 
 ## Testing
 

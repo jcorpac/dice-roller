@@ -1,5 +1,5 @@
 import pytest
-from dice_roller.logic import add_logic, roll_die_logic, roll_ability_score_logic, roll_d20_logic, roll_damage_logic
+from dice_roller.logic import add_logic, roll_die_logic, roll_ability_score_logic, roll_d20_logic, roll_dice_logic
 
 def test_add():
     assert add_logic(1, 2) == 3
@@ -34,9 +34,9 @@ def test_roll_d20():
     assert 1 <= res["base_roll"] <= 20
     assert "Disadvantage" in res["reason"]
 
-def test_roll_damage():
+def test_roll_dice():
     # Test 2d6 + 3
-    res = roll_damage_logic(count=2, sides=6, modifier=3)
+    res = roll_dice_logic(count=2, sides=6, modifier=3)
     assert 5 <= res["total"] <= 15
     assert len(res["rolls"]) == 2
     assert res["modifier"] == 3

@@ -4,7 +4,7 @@ from dice_roller.logic import (
     roll_die_logic,
     roll_ability_score_logic,
     roll_d20_logic,
-    roll_damage_logic,
+    roll_dice_logic,
 )
 
 # Initialize the FastMCP server
@@ -32,9 +32,9 @@ def roll_d20(modifier: int = 0, advantage: bool = False, disadvantage: bool = Fa
     return roll_d20_logic(modifier, advantage, disadvantage)
 
 @mcp.tool()
-def roll_damage(count: int, sides: int, modifier: int = 0) -> dict:
-    """Roll damage (e.g., 2d6 + 3)."""
-    return roll_damage_logic(count, sides, modifier)
+def roll_dice(count: int, sides: int, modifier: int = 0) -> dict:
+    """Roll multiple dice (e.g., 2d6 + 3)."""
+    return roll_dice_logic(count, sides, modifier)
 
 if __name__ == "__main__":
     mcp.run()
