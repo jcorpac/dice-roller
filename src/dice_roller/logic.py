@@ -1,22 +1,24 @@
+import random
+
 def add_logic(a: int, b: int) -> int:
     """Add two numbers together."""
     return a + b
 
 def roll_die_logic(sides: int = 6) -> int:
     """Roll a die with the specified number of sides."""
-    import random
+
     return random.randint(1, sides)
 
 def roll_ability_score_logic() -> int:
     """Roll 4d6 and drop the lowest die to generate an ability score."""
-    import random
+
     rolls = [random.randint(1, 6) for _ in range(4)]
     rolls.sort()
     return sum(rolls[1:])
 
 def roll_d20_logic(modifier: int = 0, advantage: bool = False, disadvantage: bool = False) -> dict:
     """Roll a d20 with optional modifier, advantage, or disadvantage."""
-    import random
+
     
     roll1 = random.randint(1, 20)
     roll2 = random.randint(1, 20)
@@ -41,7 +43,7 @@ def roll_d20_logic(modifier: int = 0, advantage: bool = False, disadvantage: boo
 
 def roll_dice_logic(count: int, sides: int, modifier: int = 0) -> dict:
     """Roll multiple dice (e.g., 2d6 + 3)."""
-    import random
+
     rolls = [random.randint(1, sides) for _ in range(count)]
     total = sum(rolls) + modifier
     return {
