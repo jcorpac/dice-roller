@@ -36,5 +36,5 @@ def roll_dice(count: int, sides: int, modifier: int = 0) -> dict:
     """Roll multiple dice (e.g., 2d6 + 3)."""
     return roll_dice_logic(count, sides, modifier)
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     mcp.run()
